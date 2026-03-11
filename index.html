@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>devfinder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="light">
+  <div class="container">
+
+    <header class="header">
+      <span class="logo">devfinder</span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+        <span class="toggle-label" id="toggleLabel">DARK</span>
+        <span class="toggle-icon" id="toggleIcon" aria-hidden="true">
+          <!-- Moon (shown in light mode) -->
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+            <path d="M19.502 11.342a.703.703 0 0 0-.588.128 7.499 7.499 0 0 1-2.117 1.07 7.5 7.5 0 0 1-9.31-9.31 7.48 7.48 0 0 1 1.207-2.576.703.703 0 0 0-.328-1.107A9.5 9.5 0 1 0 19.893 11.93a.7.7 0 0 0-.391-.588z" fill="currentColor"/>
+          </svg>
+          <!-- Sun (shown in dark mode) -->
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85 1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" fill="currentColor"/>
+          </svg>
+        </span>
+      </button>
+    </header>
+
+    <main>
+      <!-- Search -->
+      <section class="search-bar" id="searchBar">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M10.609 0C4.753 0 0 4.753 0 10.609c0 5.857 4.753 10.61 10.609 10.61a10.56 10.56 0 0 0 6.557-2.27l4.658 4.657a1 1 0 1 0 1.414-1.414l-4.658-4.657A10.56 10.56 0 0 0 21.218 10.61C21.218 4.753 16.466 0 10.609 0zm0 2c4.75 0 8.609 3.858 8.609 8.609 0 4.75-3.858 8.609-8.609 8.609-4.75 0-8.609-3.858-8.609-8.609C2 5.858 5.858 2 10.609 2z" fill="#0079FF"/>
+        </svg>
+        <label for="searchInput" class="sr-only">Search GitHub username</label>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search GitHub username…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <span class="error-msg" id="errorMsg" aria-live="assertive" hidden>No results</span>
+        <button class="search-btn" id="searchBtn">Search</button>
+      </section>
+
+      <!-- Profile Card -->
+      <section class="profile-card" id="profileCard" hidden>
+
+        <div class="card-top">
+          <img class="avatar" id="avatar" src="" alt="" width="117" height="117" />
+          <div class="card-top-right">
+            <div class="name-join-row">
+              <h1 class="display-name" id="displayName"></h1>
+              <p class="join-date" id="joinDate"></p>
+            </div>
+            <a class="username" id="username" href="" target="_blank" rel="noopener noreferrer"></a>
+          </div>
+        </div>
+
+        <p class="bio" id="bio"></p>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-label">Repos</span>
+            <span class="stat-value" id="repoCount"></span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Followers</span>
+            <span class="stat-value" id="followersCount"></span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Following</span>
+            <span class="stat-value" id="followingCount"></span>
+          </div>
+        </div>
+
+        <ul class="info-list">
+          <li class="info-item" id="infoLocation">
+            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="20" viewBox="0 0 14 20" aria-hidden="true">
+              <path d="M7 0C3.134 0 0 3.134 0 7c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7zm0 9.5A2.5 2.5 0 1 1 7 4.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/>
+            </svg>
+            <span class="info-text" id="locationText"></span>
+          </li>
+
+          <li class="info-item" id="infoTwitter">
+            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" aria-hidden="true">
+              <path d="M20 2.799a8.549 8.549 0 0 1-2.363.647 4.077 4.077 0 0 0 1.804-2.266 8.194 8.194 0 0 1-2.6.981A4.13 4.13 0 0 0 13.85 1a4.109 4.109 0 0 0-4.1 4.1c0 .318.029.63.09.938A11.712 11.712 0 0 1 1.393 1.75a4.063 4.063 0 0 0-.556 2.06 4.1 4.1 0 0 0 1.824 3.415 4.09 4.09 0 0 1-1.858-.513v.052a4.11 4.11 0 0 0 3.293 4.025 4.16 4.16 0 0 1-1.08.143c-.265 0-.52-.025-.77-.075a4.112 4.112 0 0 0 3.834 2.85A8.268 8.268 0 0 1 .98 15.401 8.187 8.187 0 0 1 0 15.345a11.671 11.671 0 0 0 6.29 1.843c7.547 0 11.675-6.252 11.675-11.675 0-.179-.004-.355-.012-.53A8.298 8.298 0 0 0 20 2.8z" fill="currentColor"/>
+            </svg>
+            <a class="info-text info-link" id="twitterLink" href="" target="_blank" rel="noopener noreferrer"></a>
+          </li>
+
+          <li class="info-item" id="infoBlog">
+            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M7.583 5.833H5.417A4.583 4.583 0 0 0 .833 10.417v.416A4.583 4.583 0 0 0 5.417 15.42h2.166a4.562 4.562 0 0 0 3.167-1.271.833.833 0 0 0-1.15-1.207 2.896 2.896 0 0 1-2.017.812H5.417a2.917 2.917 0 0 1-2.917-2.917v-.416a2.917 2.917 0 0 1 2.917-2.917h2.166a2.896 2.896 0 0 1 2.017.813.833.833 0 1 0 1.15-1.208 4.562 4.562 0 0 0-3.167-1.271zm4.834 0a4.562 4.562 0 0 0-3.167 1.271.833.833 0 1 0 1.15 1.208 2.896 2.896 0 0 1 2.017-.812h2.166a2.917 2.917 0 0 1 2.917 2.916v.417a2.917 2.917 0 0 1-2.917 2.916h-2.166a2.896 2.896 0 0 1-2.017-.812.833.833 0 1 0-1.15 1.207 4.562 4.562 0 0 0 3.167 1.271h2.166A4.583 4.583 0 0 0 19.167 10.833v-.416A4.583 4.583 0 0 0 14.583 5.833H12.417z" fill="currentColor"/>
+            </svg>
+            <a class="info-text info-link" id="blogLink" href="" target="_blank" rel="noopener noreferrer"></a>
+          </li>
+
+          <li class="info-item" id="infoCompany">
+            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M16.667 2.5H3.333C2.413 2.5 1.667 3.246 1.667 4.167v11.666c0 .92.746 1.667 1.666 1.667h13.334c.92 0 1.666-.746 1.666-1.667V4.167c0-.92-.746-1.667-1.666-1.667zm-10 12.5H5V13.333h1.667V15zm0-3.333H5V10h1.667v1.667zm0-3.334H5V6.667h1.667V8.333zm3.333 6.667H8.333V13.333H10V15zm0-3.333H8.333V10H10v1.667zm0-3.334H8.333V6.667H10V8.333zm4.833 5.834H11.5v-1.834h1.333v1.834zm0-3.167H11.5V9.167h1.333V11zm0-3.167H11.5V6h1.333v1.833z" fill="currentColor"/>
+            </svg>
+            <span class="info-text" id="companyText"></span>
+          </li>
+        </ul>
+
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
