@@ -114,7 +114,6 @@ const MONTHS = [
 
 function formatDate(iso) {
   const d = new Date(iso);
-  console.log(d.getMonth());
   return `Joined ${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
 }
 
